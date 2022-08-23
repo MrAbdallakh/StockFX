@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #191970;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerRegister">
+   <Label alignment="CENTER" layoutX="131.0" layoutY="14.0" prefHeight="67.0" prefWidth="339.0" text="Create Account" textFill="WHITE">
+      <font>
+         <Font name="Arial Bold" size="45.0" />
+      </font>
+   </Label>
+   <Label layoutX="84.0" layoutY="122.0" prefHeight="36.0" prefWidth="96.0" text="Username:" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="83.0" layoutY="158.0" prefHeight="36.0" prefWidth="96.0" text="Password:" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="83.0" layoutY="194.0" prefHeight="36.0" prefWidth="185.0" text="Confirm Password:" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="username" layoutX="176.0" layoutY="128.0" prefHeight="25.0" prefWidth="290.0" />
+   <PasswordField fx:id="password" layoutX="176.0" layoutY="164.0" prefHeight="25.0" prefWidth="290.0" />
+   <PasswordField fx:id="confirmedPassword" layoutX="245.0" layoutY="200.0" prefHeight="25.0" prefWidth="220.0" />
+   <Button fx:id="back" layoutX="127.0" layoutY="298.0" mnemonicParsing="false" onAction="#onActionBack" style="-fx-background-color: #202090; -fx-background-radius: 30;" text="Back" textFill="WHITE">
+      <font>
+         <Font name="Arial Bold" size="26.0" />
+      </font>
+   </Button>
+   <Button layoutX="318.0" layoutY="298.0" mnemonicParsing="false" onAction="#onActionCreate" style="-fx-background-color: #202090; -fx-background-radius: 30;" text="Create" textFill="WHITE">
+      <font>
+         <Font name="Arial Bold" size="26.0" />
+      </font>
+   </Button>
+</AnchorPane>
