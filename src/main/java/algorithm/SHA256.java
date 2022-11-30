@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 *
 * <a href="https://www.geeksforgeeks.org/sha-256-hash-in-java/"> Source Code </a>
 *
-* <p> I add in the class instance variable, constructor, setValue and changed
+* <p> I add instance variable, constructor, setValue and changed
 *         getValue from Source Code. </p>
 */
 

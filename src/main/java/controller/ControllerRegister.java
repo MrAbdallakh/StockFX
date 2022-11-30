@@ -4,10 +4,7 @@ import algorithm.AccountInformation;
 import algorithm.SHA256;
 import app.SceneSwitch;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -15,11 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ControllerRegister implements Initializable {
@@ -58,29 +53,11 @@ public class ControllerRegister implements Initializable {
     }
 
 
-    private void backLogin() {
-        try {
-
-            URL url = Objects.requireNonNull(getClass().getClassLoader().getResource("Login.fxml")).toURI().toURL();
-            Parent root = FXMLLoader.load(url);
-            Stage stage = (Stage) back.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-
-            new SceneSwitch().sceneSwitch(stage);
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Back to Login");
-            alert.setContentText("It is not possible to switch to Login because techincal problem!");
-            alert.show();
-        }
-    }
+    private void backLogin() { new SceneSwitch().sceneSwitch("Login.fxml", back); }
 
 
     @FXML
-    private void onActionCreate() {
-        createAccount();
-    }
+    private void onActionCreate() { createAccount(); }
 
 
     private void createAccount() {
@@ -121,13 +98,7 @@ public class ControllerRegister implements Initializable {
 
                         new AccountInformation().createAccount(file, new SHA256(password.getText()).getValue());
 
-                        URL url = Objects.requireNonNull(getClass().getClassLoader().getResource("Login.fxml")).toURI().toURL();
-                        Parent root = FXMLLoader.load(url);
-                        Stage stage = (Stage) back.getScene().getWindow();
-                        stage.setScene(new Scene(root));
-                        stage.setResizable(false);
-
-                        new SceneSwitch().sceneSwitch(stage);
+                        new SceneSwitch().sceneSwitch("Login.fxml", back);
                     }
                 } catch (Exception e) {
 

@@ -4,23 +4,18 @@ import algorithm.AccountInformation;
 import algorithm.SHA256;
 import app.SceneSwitch;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ControllerLogin implements Initializable {
@@ -83,13 +78,7 @@ public class ControllerLogin implements Initializable {
                         alert.show();
                     } else {
 
-                        URL url = Objects.requireNonNull(getClass().getClassLoader().getResource("Stock.fxml")).toURI().toURL();
-                        Parent root = FXMLLoader.load(url);
-                        Stage stage = (Stage) login.getScene().getWindow();
-                        stage.setScene(new Scene(root));
-                        stage.setResizable(false);
-
-                        new SceneSwitch().sceneSwitch(stage);
+                        new SceneSwitch().sceneSwitch("Stock.fxml", login);
                     }
                 } else {
 
@@ -116,15 +105,5 @@ public class ControllerLogin implements Initializable {
 
 
     @FXML
-    private void onActionCreateAccount() throws Exception {
-
-        URL url = Objects.requireNonNull(getClass().getClassLoader().getResource("Register.fxml")).toURI().toURL();
-        Parent root = FXMLLoader.load(url);
-        Stage stage = (Stage) createAccount.getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-
-        new SceneSwitch().sceneSwitch(stage);
-
-    }
+    private void onActionCreateAccount() { new SceneSwitch().sceneSwitch("Register.fxml", createAccount); }
 }

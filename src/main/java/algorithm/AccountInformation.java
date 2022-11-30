@@ -8,7 +8,7 @@ public class AccountInformation {
 
     // Save and Load is in ControllerStock.java
 
-    private static String name, password;
+    private String name, password;
 
     public String getName(){
         return name;

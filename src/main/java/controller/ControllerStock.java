@@ -6,12 +6,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
@@ -105,6 +102,16 @@ public class ControllerStock implements Initializable {
                     }
 
                     winLoseStock.setText(String.valueOf(this.decimalFormat.format(buyingStockPrice)));
+
+                    if(buyingStockPrice > 0){
+                       winLoseStock.setTextFill(Color.GREEN);
+                    }else if (buyingStockPrice < 0){
+                        winLoseStock.setTextFill(Color.RED);
+                    }else{
+                        winLoseStock.setTextFill(Color.WHITE);
+                    }
+
+
                     accountMoney.setText(String.valueOf(this.decimalFormat.format(Double.parseDouble(accountMoney.getText()))));
 
 
@@ -133,12 +140,11 @@ public class ControllerStock implements Initializable {
     private void onActionStock(ActionEvent event) {
         Button button = (Button) event.getSource();
         this.stockName = button.getText();
-        Stock stock;
 
 
         try {
 
-            stock = YahooFinance.get(this.stockName);
+            Stock stock = YahooFinance.get(this.stockName);
             this.stockPrice = Double.parseDouble(decimalFormat.format(Objects.requireNonNull(stock).getQuote().getPrice()));
 
         } catch (IOException e) {
@@ -207,6 +213,7 @@ public class ControllerStock implements Initializable {
                 this.accountMoney.setText(String.valueOf(account + boughtStockValue - winLoseMoney));
             }
 
+
             this.accountMoney.setText(decimalFormat.format(Double.parseDouble(this.accountMoney.getText())));
             stockProtocol.get(this.stockName).clear();
 
@@ -239,13 +246,7 @@ public class ControllerStock implements Initializable {
         try {
             saveAccount(close);
 
-            URL url = Objects.requireNonNull(getClass().getClassLoader().getResource("Login.fxml")).toURI().toURL();
-            Parent root = FXMLLoader.load(url);
-            Stage stage = (Stage) signOut.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-
-            new SceneSwitch().sceneSwitch(stage);
+            new SceneSwitch().sceneSwitch("Login.fxml", signOut);
 
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -293,7 +294,6 @@ public class ControllerStock implements Initializable {
             writeBoughtStock(writer, "SNAP");
             writeBoughtStock(writer, "TSLA");
             writeBoughtStock(writer, "TWTR");
-            writeBoughtStock(writer, "UBER");
             writer.close();
 
         } catch (IOException e) {
@@ -328,7 +328,7 @@ public class ControllerStock implements Initializable {
                                         "DASH", "DIS", "DO", "ET",
                                         "FVRR", "GOOG", "INTC", "META",
                                         "MSFT", "NFLX", "ORCL", "PINS",
-                                        "SNAP", "TSLA", "TWTR", "UBER"};
+                                        "SNAP", "TSLA", "TWTR", ""};
 
         try {
 
