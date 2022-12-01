@@ -205,13 +205,7 @@ public class ControllerStock implements Initializable {
             double winLoseMoney = Double.parseDouble(decimalFormat.format(Double.parseDouble(this.winLoseStock.getText())));
 
 
-            if (Double.parseDouble(this.winLoseStock.getText()) >= 0) {
-
-                this.accountMoney.setText(String.valueOf(account + boughtStockValue + winLoseMoney));
-
-            } else {
-                this.accountMoney.setText(String.valueOf(account + boughtStockValue - winLoseMoney));
-            }
+            this.accountMoney.setText(String.valueOf(account + boughtStockValue + winLoseMoney));
 
 
             this.accountMoney.setText(decimalFormat.format(Double.parseDouble(this.accountMoney.getText())));
