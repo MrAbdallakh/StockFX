@@ -171,6 +171,7 @@ public class ControllerStock implements Initializable {
 
                 stockProtocol.get(this.stockName).add(simpleDateFormat.format(new Date()) + ";" + this.stockPrice + ";" + input.getText());
                 this.input.clear();
+                saveAccount(false);
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -219,6 +220,8 @@ public class ControllerStock implements Initializable {
                 alert.show();
 
                 signOut(true);
+            } else {
+                saveAccount(false);
             }
 
         } else {
