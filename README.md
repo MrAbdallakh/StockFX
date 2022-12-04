@@ -1,4 +1,3 @@
-# StockFX
 # Technologie
 
 -) OpenJDK 19.0.1
@@ -11,3 +10,5 @@
 # Screenshots
 
 ![login](./src/main/resources/presentation/LoginPage.PNG)
+![login](./src/main/resources/presentation/RegisterPage.PNG)
+![login](./src/main/resources/presentation/StockPage.PNG)
