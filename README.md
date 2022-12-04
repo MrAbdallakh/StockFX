@@ -2,7 +2,9 @@
 # Technologie
 
 -) OpenJDK 19.0.1
+
 -) JavaFX SDK 19
+
 -) API from: https://github.com/sstrickx/yahoofinance-api
 
 
