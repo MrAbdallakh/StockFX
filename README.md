@@ -8,4 +8,4 @@
 
 # Screenshots
 
-![login](/src/main/resources/presentation/LoginPage.png)
+![login](./src/main/resources/presentation/LoginPage.PNG)
